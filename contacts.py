@@ -29,8 +29,8 @@ class Contacts:
 	def modify_contact(self, id, first_name, last_name):
 		if id not in self.contact_dict.keys():
 			return "error"
-		self.contact_dict[id] = fullname
-		self.contact_dict[id] = fullname
+		self.contact_dict.pop(id)
+		self.contact_dict[id] = [first_name, last_name]
 		self.contact_dict = dict(sorted(self.contact_dict.items(), key=lambda item: item[1]))
 		try:
 			with open(self.name, 'w') as f:
